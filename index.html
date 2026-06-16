@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Plataformas Exclusivas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a0b2e;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header { text-align: center; }
+
+    .acceso-badge {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid rgba(195,155,211,0.5);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #c39bd3;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    .titulo-principal {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .subtitulo {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 2px;
+    }
+
+    .plataformas {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .plataforma-card {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 14px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .plataforma-nombre {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .plataforma-tag {
+      font-size: 0.45rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .bono-wrapper {
+      width: 100%;
+      background: linear-gradient(135deg, #2d1f5e, #1a0b2e);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bono-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      animation: shine 4s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      60%, 100% { left: 200%; }
+    }
+
+    .bono-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 3px;
+      margin-bottom: 4px;
+    }
+
+    @keyframes bounce-num {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .bono-porcentaje {
+      font-size: 5.5rem;
+      font-weight: 900;
+      color: #FFD700;
+      line-height: 1;
+      animation: bounce-num 2s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    .bono-subtexto {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 2px;
+      margin-top: 6px;
+    }
+
+    .features {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .feature {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+
+    .feature-icon { font-size: 1.2rem; }
+
+    .feature-text {
+      font-size: 0.5rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1px;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+      70% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(37,211,102,0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      padding: 18px 24px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      animation: pulse 1.8s infinite;
+    }
+
+    .estado-activo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .dot-verde {
+      width: 8px; height: 8px;
+      background: #25D366;
+      border-radius: 50%;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    @keyframes slideInLeft {
+      0% { transform: translateX(-30px); opacity: 0; }
+      10% { transform: translateX(0); opacity: 1; }
+      80% { transform: translateX(0); opacity: 1; }
+      100% { transform: translateX(-30px); opacity: 0; }
+    }
+
+    .notif {
+      background: #2d1f5e;
+      border-left: 3px solid #9b59b6;
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 320px;
+      width: 100%;
+    }
+
+    .notif-texto { text-align: left; }
+    .notif-titulo { font-size: 0.55rem; font-weight: 700; color: #c39bd3; letter-spacing: 1px; }
+    .notif-nombre { font-size: 0.78rem; font-weight: 700; color: #fff; }
+    .notif-tiempo { font-size: 0.55rem; color: rgba(255,255,255,0.4); }
+  </style>
+
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1657224628856094');
+  fbq('track', 'PageView');
+  window.addEventListener('message', function(e) {
+    if(e.data && e.data.type === 'waClick') { fbq('track', 'Lead'); }
+  });
+  document.addEventListener('click', function(e) {
+    var target = e.target;
+    while(target && target.tagName !== 'A') { target = target.parentElement; }
+    if(target && target.href && target.href.indexOf('wa.me') !== -1) { fbq('track', 'Lead'); }
+  }, true);
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1657224628856094&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="acceso-badge">VAULTNET · RED VERIFICADA</div>
+      <h1 class="titulo-principal">TUS PLATAFORMAS<br>FAVORITAS</h1>
+
+    </div>
+
+    <style>
+    @keyframes card-shine {
+      0% { left: -100%; }
+      60%, 100% { left: 200%; }
+    }
+    .plat-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .plat-shine::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      animation: card-shine 3s ease-in-out infinite;
+    }
+    </style>
+    <div class="plataformas">
+      <div class="plataforma-card plat-shine" style="justify-content:center; align-items:center; padding:16px 8px;">
+        <svg viewBox="0 0 680 120" style="width:100%; height:36px;">
+          <defs>
+            <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="30%" stop-color="#d4d4d4"/>
+              <stop offset="60%" stop-color="#a0a0a0"/>
+              <stop offset="100%" stop-color="#c8c8c8"/>
+            </linearGradient>
+            <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#b06ed4"/>
+              <stop offset="50%" stop-color="#7d3c98"/>
+              <stop offset="100%" stop-color="#b06ed4"/>
+            </linearGradient>
+          </defs>
+          <text x="340" y="88" text-anchor="middle" font-family="Poppins, sans-serif" font-size="72" font-weight="bold">
+            <tspan fill="url(#sg)">GANAMOS </tspan><tspan fill="url(#pg)">NET</tspan>
+          </text>
+        </svg>
+      </div>
+      <div class="plataforma-card plat-shine" style="justify-content:center; align-items:center; padding:16px 8px;">
+        <svg viewBox="0 0 680 120" style="width:100%; height:36px;">
+          <defs>
+            <linearGradient id="st" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="30%" stop-color="#d4d4d4"/>
+              <stop offset="60%" stop-color="#a0a0a0"/>
+              <stop offset="100%" stop-color="#c8c8c8"/>
+            </linearGradient>
+            <linearGradient id="bt" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7ec8e3"/>
+              <stop offset="50%" stop-color="#3a9fd1"/>
+              <stop offset="100%" stop-color="#7ec8e3"/>
+            </linearGradient>
+          </defs>
+          <text x="340" y="88" text-anchor="middle" font-family="Poppins, sans-serif" font-size="72" font-weight="bold">
+            <tspan fill="url(#st)">TORRE </tspan><tspan fill="url(#bt)">VIP</tspan>
+          </text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="bono-wrapper">
+      <div class="bono-label">BONO DE BIENVENIDA</div>
+      <div class="bono-porcentaje">15%</div>
+      <div class="bono-subtexto" style="color:#fff; font-size:0.75rem; font-family:'Poppins',sans-serif; font-weight:700; letter-spacing:1px;">¡REGISTRATE AHORA Y RECIBÍ TU BONO!</div>
+      <a class="btn-whatsapp" href="https://wa.me/5493562568481?text=Hola,%20me%20creas%20un%20usuario%3F" target="_blank" style="margin-top:20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" fill="white">
+          <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.494 2.031 7.807L0 32l8.418-2.01A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.79-1.853l-.487-.29-5.002 1.194 1.216-4.87-.318-.503A13.234 13.234 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.35-1.159-2.714-1.292-.364-.132-.628-.199-.893.199-.265.398-1.026 1.292-1.258 1.557-.232.265-.464.298-.862.1-.398-.199-1.681-.619-3.202-1.977-1.183-1.057-1.982-2.363-2.214-2.761-.232-.398-.025-.613.174-.811.179-.178.398-.464.597-.696.199-.232.265-.398.398-.663.132-.265.066-.497-.033-.696-.1-.199-.893-2.152-1.224-2.946-.322-.773-.649-.668-.893-.68l-.76-.013c-.265 0-.696.1-.1060.497-.364.398-1.39 1.358-1.39 3.311 0 1.953 1.423 3.839 1.621 4.104.199.265 2.8 4.274 6.785 5.993.948.409 1.688.653 2.265.836.952.302 1.818.259 2.503.157.764-.114 2.35-.96 2.681-1.888.332-.928.332-1.724.232-1.888-.099-.166-.364-.265-.762-.464z"/>
+        </svg>
+        OBTENER MI BONO AHORA
+      </a>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-text">ATENCIÓN<br>RÁPIDA</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <div class="feature-text">CONTACTO<br>DIRECTO</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💰</div>
+        <div class="feature-text">CARGAS Y RETIROS<br>AL INSTANTE</div>
+      </div>
+    </div>
+
+    <div class="estado-activo">
+      <div class="dot-verde"></div>
+      ATENCIÓN ACTIVA POR WHATSAPP
+    </div>
+
+    <div style="display:flex; justify-content:center; width:100%;">
+      <div class="notif" id="notif-box">
+        <span style="font-size:1.4rem;">💰</span>
+        <div class="notif-texto">
+          <div class="notif-titulo">PREMIO PAGADO 💸</div>
+          <div class="notif-nombre" id="notif-nombre">Martín López ganó <span style="color:#c39bd3;">$84.000</span></div>
+          <div class="notif-tiempo" id="notif-tiempo">hace 3 minutos</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  var nombres = [
+    "Martín López","Santiago Gómez","Lucas Fernández","Matías Rodríguez","Nicolás García",
+    "Agustín Martínez","Facundo Pérez","Ezequiel Díaz","Gonzalo Torres","Leandro Sánchez",
+    "Bruno Romero","Tomás Álvarez","Ignacio Ruiz","Sebastián Morales","Damián Herrera",
+    "Rodrigo Jiménez","Maximiliano Castro","Federico Suárez","Cristian Medina","Pablo Ortiz",
+    "Valentina López","Camila Gómez","Sofía Fernández","Lucía Rodríguez","Florencia García",
+    "Martina Martínez","Agustina Pérez","Micaela Díaz","Romina Torres","Natalia Sánchez",
+    "Julieta Romero","Celeste Álvarez","Valeria Ruiz","Carolina Morales","Daniela Herrera",
+    "Antonella Jiménez","Giuliana Castro","Brenda Suárez","Melissa Medina","Rocío Ortiz"
+  ];
+  var montos = [52000,55000,58000,60000,65000,70000,72000,75000,78000,80000,84000,88000,90000,95000,100000,110000,115000,120000,125000,130000,140000,150000];
+  var tiempos = ["hace 1 minuto","hace 2 minutos","hace 3 minutos","hace 4 minutos","hace 5 minutos","hace 6 minutos","hace 7 minutos","hace 8 minutos","hace 10 minutos"];
+  var usados = [];
+
+  function nombreAleatorio() {
+    if(usados.length >= nombres.length) usados = [];
+    var disponibles = nombres.filter(function(n){ return usados.indexOf(n) === -1; });
+    var nombre = disponibles[Math.floor(Math.random() * disponibles.length)];
+    usados.push(nombre);
+    return nombre;
+  }
+
+  function actualizarNotif() {
+    var el = document.getElementById('notif-box');
+    if(!el) return;
+    var nombre = nombreAleatorio();
+    var monto = montos[Math.floor(Math.random() * montos.length)];
+    var tiempo = tiempos[Math.floor(Math.random() * tiempos.length)];
+    document.getElementById('notif-nombre').innerHTML = nombre + ' ganó <span style="color:#c39bd3;">$' + monto.toLocaleString('es-AR') + '</span>';
+    document.getElementById('notif-tiempo').innerHTML = tiempo;
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = 'slideInLeft 2s ease-in-out forwards';
+    setTimeout(actualizarNotif, 2500);
+  }
+
+  setTimeout(actualizarNotif, 2500);
+  </script>
+</body>
+</html>
